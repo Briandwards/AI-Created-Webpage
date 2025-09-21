@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Preferences</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .custom-card {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 15px;
+        }
+        .form-check-input:checked {
+            background-color: #667eea;
+            border-color: #667eea;
+        }
+        .btn-custom {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .select-all-section {
+            border-bottom: 2px solid #dee2e6;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+        }
+        .form-check {
+            transition: all 0.3s ease;
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+        .form-check:hover {
+            background-color: rgba(102, 126, 234, 0.1);
+            transform: translateX(5px);
+        }
+        .form-check-input {
+            transition: all 0.2s ease;
+        }
+        .form-check-label {
+            transition: color 0.2s ease;
+        }
+        .form-check:hover .form-check-label {
+            color: #667eea;
+        }
+        .custom-card {
+            animation: slideIn 0.8s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            .custom-card .card-body {
+                padding: 2rem 1.5rem;
+            }
+            .btn-custom {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            .form-check {
+                padding: 1rem 0.5rem;
+            }
+            .form-check:hover {
+                transform: none;
+            }
+            h1 {
+                font-size: 1.75rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 1rem;
+            }
+            .custom-card .card-body {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="card custom-card">
+                    <div class="card-body p-5">
+                        <h1 class="text-center mb-4 text-primary">
+                            <i class="bi bi-envelope-check me-2"></i>Email Preferences
+                        </h1>
+                        <p class="text-center text-muted mb-4">Manage your email communication preferences</p>
+                        
+                        <form action="https://www.w3schools.com/action_page.php" method="post">
+                            <div class="select-all-section">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="select-all" onchange="toggleAll()">
+                                    <label class="form-check-label fw-bold text-primary" for="select-all">
+                                        <i class="bi bi-check-all me-2"></i>Select/Deselect All
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Receive important updates about your tax return status and deadlines">
+                                    <input class="form-check-input email-checkbox" type="checkbox" id="critical-alerts" name="critical-alerts" value="critical-alerts">
+                                    <label class="form-check-label" for="critical-alerts">
+                                        <i class="bi bi-exclamation-triangle text-warning me-2"></i>Critical alerts and notifications about your tax return
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Get notified about discounts and promotional offers for tax services">
+                                    <input class="form-check-input email-checkbox" type="checkbox" id="special-offers" name="special-offers" value="special-offers">
+                                    <label class="form-check-label" for="special-offers">
+                                        <i class="bi bi-tag text-success me-2"></i>Information about special offers for tax services
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Stay informed about changes in tax laws and important filing deadlines">
+                                    <input class="form-check-input email-checkbox" type="checkbox" id="irs-changes" name="irs-changes" value="irs-changes">
+                                    <label class="form-check-label" for="irs-changes">
+                                        <i class="bi bi-bell text-info me-2"></i>Receive notifications of IRS changes and deadlines
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Monthly newsletter with tax tips, strategies, and updates">
+                                    <input class="form-check-input email-checkbox" type="checkbox" id="tax-newsletter" name="tax-newsletter" value="tax-newsletter">
+                                    <label class="form-check-label" for="tax-newsletter">
+                                        <i class="bi bi-journal-text text-primary me-2"></i>Learn from monthly tax newsletter with tax news and tips
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <div class="d-grid d-md-flex justify-content-center gap-2">
+                                    <button type="submit" class="btn btn-primary btn-custom" onclick="showConfirmation(event)">
+                                        <i class="bi bi-save me-2"></i>Save Preferences
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="resetForm()" style="border-radius: 25px; padding: 12px 30px;">
+                                        <i class="bi bi-arrow-clockwise me-2"></i>Reset
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div id="confirmation" class="alert alert-success mt-3 d-none" role="alert">
+                                <i class="bi bi-check-circle-fill me-2"></i>
+                                Your email preferences have been saved successfully!
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-12 text-center">
+                        <div class="card" style="background: rgba(255, 255, 255, 0.1); border: none; border-radius: 15px;">
+                            <div class="card-body py-3">
+                                <small class="text-white">
+                                    <i class="bi bi-shield-check me-2"></i>
+                                    Your privacy is important to us. 
+                                    <a href="#" class="text-white text-decoration-underline">Read our Privacy Policy</a>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleAll() {
+            const selectAllCheckbox = document.getElementById('select-all');
+            const emailCheckboxes = document.querySelectorAll('.email-checkbox');
+            
+            emailCheckboxes.forEach(checkbox => {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+        }
+        
+        function showConfirmation(event) {
+            event.preventDefault();
+            const confirmation = document.getElementById('confirmation');
+            confirmation.classList.remove('d-none');
+            
+            // Submit the form after showing confirmation
+            setTimeout(() => {
+                event.target.closest('form').submit();
+            }, 1500);
+        }
+        
+        function resetForm() {
+            const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+            allCheckboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // Hide confirmation message if visible
+            const confirmation = document.getElementById('confirmation');
+            confirmation.classList.add('d-none');
+        }
+        
+        // Initialize tooltips
+        document.addEventListener('DOMContentLoaded', function() {
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+    </script>
+</body>
+</html>
